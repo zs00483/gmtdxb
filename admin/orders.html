@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orders | GMTDXB Admin</title>
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="admin-body">
+
+  <!-- Sidebar -->
+  <div id="adminSidebar"></div>
+
+  <!-- Main Content -->
+  <main class="admin-main">
+    <h1>Order Management</h1>
+
+    <!-- Orders Table -->
+    <div class="table-container">
+      <h2 class="text-blue-400 text-lg mb-3">All Orders</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Total (AED)</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="ordersTable">
+          <tr><td colspan="6" class="text-gray-400 text-center">Loading orders...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    fetch("sidebar.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("adminSidebar").innerHTML = html);
+  </script>
+
+  <script src="../js/firebase.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

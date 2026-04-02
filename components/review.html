@@ -1,0 +1,28 @@
+<!-- ==========================================================
+   review.html — Product Review Section
+   ========================================================== -->
+
+<section class="mt-12" id="reviewSection">
+  <h2 class="text-2xl font-semibold text-blue-400 mb-4">Customer Reviews</h2>
+  <div id="ratingSummary" class="text-gray-300 mb-3">⭐ 0.0 (0 Reviews)</div>
+
+  <!-- Review Form -->
+  <form id="reviewForm" class="glass p-6 rounded-xl mb-8">
+    <div class="flex items-center mb-4 star-rating gap-1 text-2xl text-gray-500 cursor-pointer">
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+    </div>
+    <input type="hidden" id="ratingValue" name="rating" required />
+    <textarea name="comment" rows="3" placeholder="Write your review..."
+      class="w-full bg-[#1b1e23] text-white p-3 rounded-md mb-4"></textarea>
+    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-medium px-6 py-2 rounded-md">
+      Submit Review
+    </button>
+  </form>
+
+  <!-- All Reviews -->
+  <div id="reviewContainer" class="space-y-4"></div>
+</section>

@@ -1,0 +1,22 @@
+<!-- ==========================================================
+   product-card.html — Product Card Component
+   ========================================================== -->
+
+<div class="product-card glass fade-in">
+  <img src="assets/products/laptop1.jpg" alt="Laptop" class="w-full h-52 object-cover rounded-t-md" />
+  
+  <div class="details mt-3">
+    <h3 class="text-lg font-semibold">HP Pavilion 15</h3>
+    <p class="text-gray-400 text-sm mt-1">Intel i5 · 16GB RAM · 512GB SSD</p>
+    <div class="price text-blue-400 mt-2">AED 2,899</div>
+    
+    <div class="product-actions mt-3 flex gap-2">
+      <button class="btn-cart" onclick="addToCart({id:'hp15',name:'HP Pavilion 15',price:2899,image:'assets/products/laptop1.jpg'})">
+        <i class="fa-solid fa-cart-shopping mr-1"></i> Add to Cart
+      </button>
+      <button class="btn-compare" onclick="addToCompare({id:'hp15',name:'HP Pavilion 15',price:2899,image:'assets/products/laptop1.jpg'})">
+        <i class="fa-solid fa-code-compare mr-1"></i> Compare
+      </button>
+    </div>
+  </div>
+</div>

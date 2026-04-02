@@ -1,0 +1,293 @@
+/* ==========================================================
+   base.css — GMTDXB Global Stylesheet
+   ==========================================================
+   Handles:
+   ✅ Color palette and variables
+   ✅ Typography consistency
+   ✅ Glassmorphism styling
+   ✅ Buttons, cards, forms, and tables
+   ✅ Animations and transitions
+   ========================================================== */
+
+/* ------------------------------------------
+   🔹 Root Variables — Brand Colors & Fonts
+------------------------------------------ */
+:root {
+  --color-primary: #3b82f6; /* Blue */
+  --color-secondary: #1e293b; /* Dark slate */
+  --color-bg: #0f1114; /* Main background */
+  --color-surface: #1b1e23; /* Surface layer */
+  --color-text: #f5f5f5; /* Text */
+  --color-muted: #9ca3af; /* Muted text */
+  --color-danger: #ef4444;
+  --color-success: #22c55e;
+  --color-warning: #facc15;
+
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  --font-main: "Inter", "Poppins", sans-serif;
+}
+
+/* ------------------------------------------
+   🔹 Reset & Global
+------------------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1c20;
+}
+
+/* ------------------------------------------
+   🔹 Utility Classes
+------------------------------------------ */
+.text-muted {
+  color: var(--color-muted);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.rounded-xl {
+  border-radius: var(--radius);
+}
+
+.shadow {
+  box-shadow: var(--shadow);
+}
+
+/* ------------------------------------------
+   🔹 Glassmorphism Components
+------------------------------------------ */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Hover Elevation */
+.glass:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+/* ------------------------------------------
+   🔹 Buttons
+------------------------------------------ */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+.btn-primary:hover {
+  background-color: #2563eb;
+}
+
+.btn-outline {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  background: transparent;
+}
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  color: white;
+}
+.btn-danger:hover {
+  background-color: #dc2626;
+}
+
+/* ------------------------------------------
+   🔹 Form Inputs
+------------------------------------------ */
+input,
+textarea,
+select {
+  width: 100%;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid #2c2f35;
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-primary);
+}
+
+/* Placeholder Color */
+::placeholder {
+  color: var(--color-muted);
+}
+
+/* ------------------------------------------
+   🔹 Cards & Containers
+------------------------------------------ */
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* ------------------------------------------
+   🔹 Tables
+------------------------------------------ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--color-text);
+}
+
+th {
+  background: #1b1e23;
+  padding: 0.8rem;
+  text-align: left;
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #2c2f35;
+}
+
+tr:hover {
+  background-color: #1a1d22;
+}
+
+/* ------------------------------------------
+   🔹 Alerts / Toasts (used by utils.js)
+------------------------------------------ */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  z-index: 9999;
+  animation: fadeInUp 0.3s ease;
+}
+
+/* ------------------------------------------
+   🔹 Animations
+------------------------------------------ */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
+
+/* ------------------------------------------
+   🔹 Media Queries
+------------------------------------------ */
+@media (max-width: 768px) {
+  .glass {
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 0.8rem;
+  }
+}
+
+/* ------------------------------------------
+   🔹 Loader Overlay (used by utils.js)
+------------------------------------------ */
+#loaderOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998;
+}
+
+#loaderOverlay .spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--color-primary);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

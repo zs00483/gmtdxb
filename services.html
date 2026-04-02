@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GMTDXB | Services</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/services.css" />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #0f1114;
+        color: #f5f5f5;
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      input,
+      textarea,
+      select {
+        background-color: #1b1e23;
+        border: 1px solid #2c2f35;
+        color: white;
+        border-radius: 6px;
+        padding: 10px;
+        width: 100%;
+      }
+
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline: none;
+        border-color: #3b82f6;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ✅ NAVBAR -->
+    <header class="sticky top-0 z-40 glass">
+      <div class="flex items-center justify-between px-6 md:px-12 py-4">
+        <!-- LEFT: Logo -->
+        <div class="flex items-center gap-2">
+          <img
+            src="https://res.cloudinary.com/ds1fnqy6s/image/upload/v1774975182/pstttlm8p4x4rd8aearl.png"
+            alt="GMTDXB"
+            class="w-12 h-12 object-contain"
+          />
+        </div>
+
+        <!-- CENTER: Menu -->
+        <nav
+          class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300"
+        >
+          <a href="index.html" class="text-blue-400">Home</a>
+          <a href="shop.html" class="hover:text-blue-400 transition">Shop</a>
+          <a href="services.html" class="hover:text-blue-400 transition"
+            >Services</a
+          >
+          <a href="about.html" class="hover:text-blue-400 transition">About</a>
+          <a href="contact.html" class="hover:text-blue-400 transition"
+            >Contact</a
+          >
+        </nav>
+
+        <!-- RIGHT: Icons -->
+        <div class="flex items-center gap-5">
+          <!-- Search -->
+          <button
+            class="text-gray-300 hover:text-blue-400 transition"
+            aria-label="Search"
+          >
+            <i class="fa-solid fa-magnifying-glass text-lg"></i>
+          </button>
+
+          <!-- Cart -->
+          <a
+            href="cart.html"
+            class="relative text-gray-300 hover:text-blue-400 transition"
+          >
+            <i class="fa-solid fa-cart-shopping text-lg"></i>
+            <span
+              id="cartCount"
+              class="absolute -top-2 -right-3 text-xs bg-blue-500 text-white rounded-full px-1.5"
+            >
+              0
+            </span>
+          </a>
+
+          <!-- User -->
+          <button
+            id="userBtn"
+            class="text-gray-300 hover:text-blue-400 transition"
+          >
+            <i class="fa-solid fa-user text-lg"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ✅ HERO SECTION -->
+    <section
+      class="relative h-[50vh] flex items-center justify-center bg-cover bg-center"
+      style="
+        background-image: url(&quot;https://images.unsplash.com/photo-1519389950473-47ba0277781c&quot;);
+      "
+    >
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="relative z-10 text-center text-white px-4">
+        <h2 class="text-4xl md:text-5xl font-bold mb-3 text-blue-400">
+          Our Services
+        </h2>
+        <p class="text-gray-300 max-w-2xl mx-auto">
+          Expert repair and maintenance solutions for laptops, PCs, and mobile
+          devices in the UAE.
+        </p>
+      </div>
+    </section>
+
+    <!-- ✅ SERVICE CARDS -->
+    <section class="py-16 w-[90%] md:w-[80%] mx-auto">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center"
+      >
+        <!-- Service 1 -->
+        <div class="glass p-6 rounded-2xl hover:scale-105 transition">
+          <i class="fa-solid fa-laptop-medical text-blue-400 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Laptop Repair</h3>
+          <p class="text-gray-400 text-sm">
+            From screen replacements to motherboard repairs — we fix all laptop
+            issues with genuine parts.
+          </p>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="glass p-6 rounded-2xl hover:scale-105 transition">
+          <i class="fa-solid fa-desktop text-blue-400 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Desktop Repair</h3>
+          <p class="text-gray-400 text-sm">
+            Professional servicing and upgrades for office and gaming desktop
+            PCs — fast and affordable.
+          </p>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="glass p-6 rounded-2xl hover:scale-105 transition">
+          <i class="fa-solid fa-mobile-screen text-blue-400 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Mobile Repair</h3>
+          <p class="text-gray-400 text-sm">
+            Expert mobile repair for all major brands — cracked screens,
+            batteries, and software issues.
+          </p>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="glass p-6 rounded-2xl hover:scale-105 transition">
+          <i class="fa-solid fa-microchip text-blue-400 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">PC Components Upgrade</h3>
+          <p class="text-gray-400 text-sm">
+            Boost performance with RAM, GPU, and SSD upgrades — handled by our
+            skilled technicians.
+          </p>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="glass p-6 rounded-2xl hover:scale-105 transition">
+          <i class="fa-solid fa-headset text-blue-400 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Technical Support</h3>
+          <p class="text-gray-400 text-sm">
+            Remote or on-site tech support to solve any system, software, or
+            network issue quickly.
+          </p>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="glass p-6 rounded-2xl hover:scale-105 transition">
+          <i class="fa-solid fa-server text-blue-400 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Data Recovery</h3>
+          <p class="text-gray-400 text-sm">
+            Recover lost files from laptops, desktops, and drives using advanced
+            data recovery tools.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ BOOK A SERVICE FORM -->
+    <section class="bg-[#111317] py-16">
+      <div class="w-[90%] md:w-[70%] mx-auto glass p-8 rounded-2xl">
+        <h3 class="text-2xl font-semibold mb-4 text-blue-400 text-center">
+          Book a Service
+        </h3>
+        <form id="serviceForm" class="space-y-5">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="text-sm text-gray-400">Full Name</label>
+              <input type="text" id="name" required placeholder="John Doe" />
+            </div>
+            <div>
+              <label class="text-sm text-gray-400">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                required
+                placeholder="you@example.com"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="text-sm text-gray-400">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                required
+                placeholder="+971 50 123 4567"
+              />
+            </div>
+            <div>
+              <label class="text-sm text-gray-400">Select Service</label>
+
+              <select
+                id="serviceType"
+                required
+                class="w-full mt-2 px-4 py-2 rounded-lg bg-gray-900 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="">Choose a Service</option>
+                <option>Laptop Repair</option>
+                <option>Desktop Repair</option>
+                <option>Mobile Repair</option>
+                <option>PC Components Upgrade</option>
+                <option>Data Recovery</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="text-sm text-gray-400">Issue Description</label>
+            <textarea
+              id="message"
+              rows="4"
+              required
+              placeholder="Describe your issue..."
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="bg-blue-500 hover:bg-blue-600 w-full py-3 rounded-md text-white font-medium transition"
+          >
+            Submit Request
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ✅ FOOTER -->
+    <footer class="bg-black py-10 text-center text-gray-400 text-sm">
+      <p>© 2025 GMTDXB — All Rights Reserved.</p>
+    </footer>
+
+    <!-- ✅ SCRIPT -->
+    <script>
+      const form = document.getElementById("serviceForm");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const serviceType = document.getElementById("serviceType").value;
+        const message = document.getElementById("message").value;
+
+        // TODO: Integrate with Firebase or EmailJS
+        console.log("Service Request:", {
+          name,
+          email,
+          phone,
+          serviceType,
+          message,
+        });
+
+        alert(
+          `✅ Thank you, ${name}! Your ${serviceType} request has been submitted. We’ll contact you shortly.`,
+        );
+        form.reset();
+      });
+    </script>
+    <script>
+      const currentPage = window.location.pathname.split("/").pop();
+
+      const links = document.querySelectorAll("nav a");
+
+      links.forEach((link) => {
+        if (link.getAttribute("href") === currentPage) {
+          link.classList.add("text-blue-400");
+        } else {
+          link.classList.remove("text-blue-400");
+        }
+      });
+    </script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

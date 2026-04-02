@@ -1,0 +1,293 @@
+/* ==========================================================
+   admin.css — GMTDXB Admin Dashboard Styles
+   ==========================================================
+   Handles:
+   ✅ Sidebar & navbar layout
+   ✅ Dashboard cards and tables
+   ✅ Forms for product management
+   ✅ Responsive panel layout
+   ✅ Polished modern glassmorphic UI
+   ========================================================== */
+
+/* ------------------------------------------
+   🔹 Global Layout
+------------------------------------------ */
+.admin-body {
+  display: flex;
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+}
+
+/* ------------------------------------------
+   🔹 Sidebar
+------------------------------------------ */
+.sidebar {
+  width: 250px;
+  background: rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 1rem;
+  position: sticky;
+  top: 0;
+}
+
+.sidebar h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 0.8rem;
+}
+
+.sidebar a {
+  display: block;
+  color: var(--color-muted);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius);
+  transition: all 0.25s ease;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.logout-btn {
+  background-color: var(--color-danger);
+  color: white;
+  padding: 0.7rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #dc2626;
+}
+
+/* ------------------------------------------
+   🔹 Main Content
+------------------------------------------ */
+.admin-main {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.admin-main h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+/* ------------------------------------------
+   🔹 Dashboard Cards
+------------------------------------------ */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.dashboard-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+}
+
+.dashboard-card h3 {
+  color: var(--color-muted);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-card p {
+  color: var(--color-text);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* ------------------------------------------
+   🔹 Tables
+------------------------------------------ */
+.table-container {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-primary);
+  padding: 0.8rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #2c2f35;
+}
+
+td {
+  padding: 0.8rem;
+  color: var(--color-text);
+  border-bottom: 1px solid #2c2f35;
+}
+
+tr:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.action-btn {
+  border: none;
+  background: none;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.action-btn:hover {
+  color: white;
+}
+
+/* ------------------------------------------
+   🔹 Forms
+------------------------------------------ */
+.form-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+.form-card h2 {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.form-card input,
+.form-card textarea,
+.form-card select {
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid #2c2f35;
+  color: var(--color-text);
+  padding: 0.7rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.form-card input:focus,
+.form-card textarea:focus,
+.form-card select:focus {
+  border-color: var(--color-primary);
+}
+
+.form-card button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.form-card button:hover {
+  background-color: #2563eb;
+}
+
+/* ------------------------------------------
+   🔹 Scrollbar Styling (for Admin Panel)
+------------------------------------------ */
+.admin-main::-webkit-scrollbar {
+  width: 8px;
+}
+
+.admin-main::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 10px;
+}
+
+.admin-main::-webkit-scrollbar-track {
+  background: #1b1e23;
+}
+
+/* ------------------------------------------
+   🔹 Responsive Layout
+------------------------------------------ */
+@media (max-width: 992px) {
+  .admin-body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sidebar ul {
+    display: flex;
+    gap: 0.8rem;
+    overflow-x: auto;
+  }
+
+  .dashboard-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+
+  th,
+  td {
+    font-size: 0.85rem;
+  }
+
+  .form-card button {
+    width: 100%;
+  }
+}

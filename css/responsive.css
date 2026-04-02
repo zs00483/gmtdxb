@@ -1,0 +1,284 @@
+/* ==========================================================
+   responsive.css — GMTDXB Responsive Design Rules
+   ==========================================================
+   Handles:
+   ✅ Global breakpoints
+   ✅ Navbar, hero, grid & layout responsiveness
+   ✅ Adjustments for product, cart, admin, services
+   ✅ Mobile UI refinements
+   ========================================================== */
+
+/* ------------------------------------------
+   🔹 Breakpoint References
+------------------------------------------ */
+/*
+  Large Devices (Desktops): ≥1200px
+  Medium Devices (Tablets): 768px – 1199px
+  Small Devices (Mobiles): ≤767px
+*/
+
+/* ------------------------------------------
+   🔹 Global Adjustments
+------------------------------------------ */
+@media (max-width: 1200px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+/* ------------------------------------------
+   🔹 Navbar Adjustments
+------------------------------------------ */
+@media (max-width: 992px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0.8rem 1rem;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--color-text);
+    cursor: pointer;
+  }
+
+  .navbar.open .navbar-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(20, 22, 25, 0.95);
+    border-radius: var(--radius);
+    padding: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .navbar-links a {
+    padding: 0.8rem;
+    text-align: center;
+  }
+}
+
+/* ------------------------------------------
+   🔹 Hero Section
+------------------------------------------ */
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+
+  .hero img {
+    margin-top: 1.5rem;
+    width: 90%;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 0.95rem;
+  }
+}
+
+/* ------------------------------------------
+   🔹 Product Grid & Cards
+------------------------------------------ */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .product-card img {
+    height: 150px;
+  }
+
+  .product-card .details h3 {
+    font-size: 0.95rem;
+  }
+
+  .product-actions button {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card img {
+    height: 180px;
+  }
+}
+
+/* ------------------------------------------
+   🔹 Product Page Layout
+------------------------------------------ */
+@media (max-width: 992px) {
+  .product-section {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+  }
+
+  .product-info h1 {
+    font-size: 1.6rem;
+  }
+
+  .product-info .price {
+    font-size: 1.4rem;
+  }
+
+  .product-actions {
+    flex-direction: column;
+  }
+
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .star-rating i {
+    font-size: 1.2rem;
+  }
+}
+
+/* ------------------------------------------
+   🔹 Cart & Checkout
+------------------------------------------ */
+@media (max-width: 992px) {
+  .cart-container {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-summary {
+    margin-top: 2rem;
+  }
+
+  .cart-item img {
+    width: 80px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-item-details {
+    text-align: left;
+  }
+
+  .checkout-form input {
+    font-size: 0.9rem;
+  }
+}
+
+/* ------------------------------------------
+   🔹 Services Page
+------------------------------------------ */
+@media (max-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service-card {
+    padding: 1.2rem;
+  }
+
+  #serviceForm {
+    width: 100%;
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* ------------------------------------------
+   🔹 Admin Dashboard
+------------------------------------------ */
+@media (max-width: 992px) {
+  .admin-body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .sidebar ul {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+  }
+
+  .dashboard-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  table th,
+  table td {
+    font-size: 0.85rem;
+    padding: 0.6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card button {
+    width: 100%;
+  }
+}
+
+/* ------------------------------------------
+   🔹 Footer
+------------------------------------------ */
+@media (max-width: 768px) {
+  footer {
+    text-align: center;
+  }
+
+  footer .footer-links {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  footer p {
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | GMTDXB</title>
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="admin-body">
+
+  <!-- Sidebar -->
+  <div id="adminSidebar"></div>
+
+  <!-- Main Dashboard -->
+  <main class="admin-main">
+    <h1>Dashboard Overview</h1>
+
+    <!-- Summary Cards -->
+    <section class="dashboard-cards">
+      <div class="dashboard-card">
+        <h3>Total Products</h3>
+        <p id="productCount">0</p>
+      </div>
+      <div class="dashboard-card">
+        <h3>Orders</h3>
+        <p id="orderCount">0</p>
+      </div>
+      <div class="dashboard-card">
+        <h3>Users</h3>
+        <p id="userCount">0</p>
+      </div>
+      <div class="dashboard-card">
+        <h3>Pending Services</h3>
+        <p id="serviceCount">0</p>
+      </div>
+    </section>
+
+    <!-- Recent Orders Table -->
+    <div class="table-container">
+      <h2 class="text-blue-400 text-lg mb-3">Recent Orders</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Total (AED)</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="recentOrders">
+          <tr><td colspan="4" class="text-gray-400 text-center">Loading...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    fetch("sidebar.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("adminSidebar").innerHTML = html);
+  </script>
+
+  <script src="../js/firebase.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

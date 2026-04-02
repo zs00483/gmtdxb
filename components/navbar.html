@@ -1,0 +1,81 @@
+<!-- ==========================================================
+   navbar.html — GMTDXB Global Navigation Bar
+   ========================================================== -->
+
+<header class="navbar glass">
+  <div class="nav-left flex items-center gap-3">
+    <!-- Logo -->
+    <a href="index.html" class="navbar-logo flex items-center gap-2">
+      <img src="assets/logo.png" alt="GMTDXB Logo" class="w-8 h-8 object-contain" />
+      <span>GMTDXB</span>
+    </a>
+  </div>
+
+  <!-- Hamburger Toggle for Mobile -->
+  <div class="navbar-toggle md:hidden" id="menuToggle">
+    <i class="fa-solid fa-bars text-white text-xl cursor-pointer"></i>
+  </div>
+
+  <!-- Navigation Links -->
+  <nav class="navbar-links md:flex hidden items-center gap-6" id="navbarLinks">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Icons Section -->
+  <div class="navbar-icons flex items-center gap-5">
+    <a href="compare.html" class="relative">
+      <i class="fa-solid fa-code-compare"></i>
+      <span id="compareCount"
+        class="absolute -top-3 -right-3 bg-blue-500 text-white text-xs rounded-full px-1 py-[1px]">0</span>
+    </a>
+
+    <a href="cart.html" class="relative">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span id="cartCount"
+        class="absolute -top-3 -right-3 bg-green-500 text-white text-xs rounded-full px-1 py-[1px]">0</span>
+    </a>
+
+    <!-- User Icon -->
+    <div class="relative group">
+      <i class="fa-solid fa-user text-white cursor-pointer"></i>
+      <div
+        class="absolute right-0 mt-2 w-44 bg-[#1b1e23] border border-gray-700 rounded-md hidden group-hover:block shadow-xl z-40">
+        <div id="userMenu" class="p-2 text-sm">
+          <a href="login.html" id="loginLink"
+            class="block px-3 py-2 text-gray-300 hover:text-blue-400">Login</a>
+          <a href="register.html" id="registerLink"
+            class="block px-3 py-2 text-gray-300 hover:text-blue-400">Register</a>
+          <a href="#" id="logoutLink"
+            class="block px-3 py-2 text-red-400 hover:text-red-500 hidden">Logout</a>
+          <a href="admin.html"
+            class="block px-3 py-2 text-gray-300 hover:text-blue-400 hidden" id="adminPanelLink">Admin
+            Panel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ------------------------------------------
+     Mobile Menu Script
+------------------------------------------ -->
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const navbarLinks = document.getElementById("navbarLinks");
+
+  if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+      navbarLinks.classList.toggle("hidden");
+      navbarLinks.classList.toggle("flex");
+      navbarLinks.classList.toggle("flex-col");
+      navbarLinks.classList.toggle("w-full");
+      navbarLinks.classList.toggle("bg-[#1b1e23]");
+      navbarLinks.classList.toggle("p-4");
+      navbarLinks.classList.toggle("rounded-md");
+    });
+  }
+</script>

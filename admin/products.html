@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Products | GMTDXB</title>
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="admin-body">
+
+  <!-- Sidebar -->
+  <div id="adminSidebar"></div>
+
+  <!-- Main Content -->
+  <main class="admin-main">
+    <h1>Product Management</h1>
+
+    <!-- Add Product Form -->
+    <div class="form-card">
+      <h2>Add New Product</h2>
+      <form id="addProductForm">
+        <input type="text" id="productName" placeholder="Product Name" required />
+        <input type="text" id="productBrand" placeholder="Brand" required />
+        <input type="number" id="productPrice" placeholder="Price (AED)" required />
+        <input type="text" id="productCategory" placeholder="Category" required />
+        <input type="file" id="productImage" accept="image/*" required />
+        <textarea id="productDesc" rows="3" placeholder="Description"></textarea>
+        <button type="submit">Add Product</button>
+      </form>
+    </div>
+
+    <!-- Product Table -->
+    <div class="table-container">
+      <h2 class="text-blue-400 text-lg mb-3">Product List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Price (AED)</th>
+            <th>Category</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="productTable">
+          <tr><td colspan="5" class="text-gray-400 text-center">Loading...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    fetch("sidebar.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("adminSidebar").innerHTML = html);
+  </script>
+
+  <script src="../js/firebase.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GMTDXB | Admin Dashboard</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #0f1114;
+        color: #f5f5f5;
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      input,
+      textarea,
+      select {
+        background-color: #1b1e23;
+        border: 1px solid #2c2f35;
+        color: white;
+        border-radius: 6px;
+        padding: 8px;
+        width: 100%;
+      }
+
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline: none;
+        border-color: #3b82f6;
+      }
+
+      .active-tab {
+        background-color: #3b82f6;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body class="overflow-x-hidden">
+    <!-- ✅ NAVBAR -->
+    <header class="glass px-6 py-4 flex items-center justify-between sticky top-0 z-40">
+      <div class="flex items-center gap-3">
+        <img src="assets/images/logos/gmt-logo.svg" alt="GMTDXB" class="w-10 h-10" />
+        <h1 class="text-lg font-semibold">Admin Dashboard</h1>
+      </div>
+      <button
+        id="logoutBtn"
+        class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md"
+      >
+        Logout
+      </button>
+    </header>
+
+    <!-- ✅ MAIN DASHBOARD -->
+    <main class="flex flex-col md:flex-row">
+      <!-- SIDEBAR -->
+      <aside class="glass md:w-1/5 p-6 md:min-h-screen">
+        <h2 class="text-xl font-semibold mb-6 text-blue-400">Menu</h2>
+        <nav class="flex flex-col gap-3">
+          <button
+            class="tab-btn text-left px-4 py-2 rounded-md hover:bg-blue-500/20 active-tab"
+            data-tab="products"
+          >
+            <i class="fa-solid fa-box mr-2"></i> Products
+          </button>
+          <button
+            class="tab-btn text-left px-4 py-2 rounded-md hover:bg-blue-500/20"
+            data-tab="orders"
+          >
+            <i class="fa-solid fa-cart-shopping mr-2"></i> Orders
+          </button>
+          <button
+            class="tab-btn text-left px-4 py-2 rounded-md hover:bg-blue-500/20"
+            data-tab="services"
+          >
+            <i class="fa-solid fa-screwdriver-wrench mr-2"></i> Service Requests
+          </button>
+        </nav>
+      </aside>
+
+      <!-- CONTENT AREA -->
+      <section class="flex-1 p-6 space-y-10">
+        <!-- PRODUCTS TAB -->
+        <div id="tab-products" class="tab-content block">
+          <h2 class="text-2xl font-semibold mb-4 text-blue-400">
+            Manage Products
+          </h2>
+          
+
+          <!-- Add Product Form -->
+          <div class="glass p-6 rounded-lg mb-8">
+            <h3 class="text-xl font-semibold mb-3">Add New Product</h3>
+            <form id="addProductForm" class="grid md:grid-cols-2 gap-4">
+              <div>
+                <label class="text-sm text-gray-400">Product Name</label>
+                <input type="text" id="productName" required />
+              </div>
+              <div>
+                <label class="text-sm text-gray-400">Brand</label>
+                <input type="text" id="productBrand" required />
+              </div>
+              <div>
+                <label class="text-sm text-gray-400">Category</label>
+                <select id="productCategory" required>
+                  <option value="">Select</option>
+                  <option>Laptops</option>
+                  <option>Desktops</option>
+                  <option>Components</option>
+                  <option>Used</option>
+                </select>
+              </div>
+              <div>
+                <label class="text-sm text-gray-400">Price (AED)</label>
+                <input type="number" id="productPrice" required />
+              </div>
+              <div class="md:col-span-2">
+                <label class="text-sm text-gray-400">Image URL</label>
+               <!-- Image Count -->
+<label class="block mt-3">Number of Images</label>
+<input type="number" id="imageCount" min="1" max="10"
+  class="w-full p-2 bg-gray-800 text-white rounded"
+  placeholder="Enter number of images">
+
+<!-- Dynamic Inputs -->
+<div id="imageInputs" class="mt-2"></div>
+              </div>
+              <div class="md:col-span-2">
+                <label class="text-sm text-gray-400">Description</label>
+                <textarea id="productDescription" rows="3"></textarea>
+              </div>
+              <button
+                type="submit"
+                class="bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-md py-2 md:col-span-2"
+              >
+                Add Product
+              </button>
+            </form>
+          </div>
+
+          <!-- Product List -->
+          <div class="glass p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-3">Product List</h3>
+            <table class="w-full text-sm text-left border-collapse">
+              <thead class="text-gray-400 border-b border-gray-700">
+                <tr>
+                  <th class="py-2">Name</th>
+                  <th>Brand</th>
+                  <th>Price</th>
+                  <th>Category</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="productList" class="text-gray-300">
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ORDERS TAB -->
+        <div id="tab-orders" class="tab-content hidden">
+          <h2 class="text-2xl font-semibold mb-4 text-blue-400">
+            Manage Orders
+          </h2>
+          <div class="glass p-6 rounded-lg">
+            <table class="w-full text-sm text-left border-collapse">
+              <thead class="text-gray-400 border-b border-gray-700">
+                <tr>
+                  <th class="py-2">Order ID</th>
+                  <th>Customer</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="orderList" class="text-gray-300">
+                <tr>
+                  <td>#1001</td>
+                  <td>John Doe</td>
+                  <td>AED 6,952.9</td>
+                  <td><span class="text-green-400">Delivered</span></td>
+                  <td>
+                    <button class="text-blue-400 hover:underline">View</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SERVICES TAB -->
+        <div id="tab-services" class="tab-content hidden">
+          <h2 class="text-2xl font-semibold mb-4 text-blue-400">
+            Service Requests
+          </h2>
+          <div class="glass p-6 rounded-lg">
+            <table class="w-full text-sm text-left border-collapse">
+              <thead class="text-gray-400 border-b border-gray-700">
+                <tr>
+                  <th class="py-2">Customer</th>
+                  <th>Service</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="serviceList" class="text-gray-300">
+                <tr>
+                  <td>Ali Khan</td>
+                  <td>Laptop Repair</td>
+                  <td><span class="text-yellow-400">Pending</span></td>
+                  <td>
+                    <button class="text-blue-400 hover:underline mr-2">
+                      Update
+                    </button>
+                    <button class="text-red-400 hover:underline">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="js/firebase.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/auth.js"></script>
+
+    <!-- ✅ SCRIPT -->
+    <script>
+     firebase.auth().onAuthStateChanged(async (user) => {
+  if (!user) {
+    window.location.href = "login.html";
+  } else {
+    const doc = await firebase.firestore().collection("users").doc(user.uid).get();
+
+    if (!doc.exists || doc.data().role !== "admin") {
+      window.location.href = "index.html";
+    }
+  }
+});
+
+      // Sidebar tab switching
+      const tabs = document.querySelectorAll(".tab-btn");
+      const contents = document.querySelectorAll(".tab-content");
+
+      tabs.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          tabs.forEach((b) => b.classList.remove("active-tab"));
+          contents.forEach((c) => (c.style.display = "none"));
+          btn.classList.add("active-tab");
+
+          const target = btn.getAttribute("data-tab");
+          document.getElementById("tab-" + target).style.display = "block";
+        });
+      });
+
+      // Add Product Logic (Demo)
+      const form = document.getElementById("addProductForm");
+      const productList = document.getElementById("productList");
+document.getElementById("imageCount").addEventListener("input", function () {
+  const count = parseInt(this.value);
+  const container = document.getElementById("imageInputs");
+
+  container.innerHTML = "";
+
+  for (let i = 0; i < count; i++) {
+    const input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = `Image URL ${i + 1}`;
+    input.className = "image-url w-full p-2 mb-2 bg-gray-800 text-white rounded";
+
+    container.appendChild(input);
+  }
+});
+      form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById("productName").value;
+  const brand = document.getElementById("productBrand").value;
+  const category = document.getElementById("productCategory").value;
+  const price = document.getElementById("productPrice").value;
+ const imageInputs = document.querySelectorAll(".image-url");
+
+let images = [];
+
+imageInputs.forEach(input => {
+  if (input.value.trim() !== "") {
+    images.push(input.value.trim());
+  }
+});
+  const description = document.getElementById("productDescription").value;
+
+  try {
+    await firebase.firestore().collection("products").add({
+      name,
+      brand,
+      category,
+      price,
+      images,
+      description,
+      createdAt: new Date()
+    });
+
+    alert("✅ Product saved to Firebase!");
+    form.reset();
+
+    loadProducts(); // reload list
+  } catch (error) {
+    console.error(error);
+    alert("❌ Error saving product");
+  }
+});
+// 🔥 ===== IMAGE SLIDER FUNCTIONS (ADD HERE) =====
+
+
+
+
+
+// 🔥 ===== END =====
+
+      // 🔥 DELETE FUNCTION
+async function deleteProduct(id) {
+  if (confirm("Delete this product?")) {
+    await firebase.firestore().collection("products").doc(id).delete();
+    loadProducts();
+  }
+}
+
+// 🔥 EDIT FUNCTION
+async function editProduct(id) {
+  const doc = await firebase.firestore().collection("products").doc(id).get();
+  const data = doc.data();
+
+  // Fill form
+  document.getElementById("productName").value = data.name;
+  document.getElementById("productBrand").value = data.brand;
+  document.getElementById("productCategory").value = data.category;
+  document.getElementById("productPrice").value = data.price;
+  document.getElementById("productDescription").value = data.description;
+
+ document.getElementById("imageCount").value = data.images?.length || 0;
+
+// trigger inputs
+document.getElementById("imageCount").dispatchEvent(new Event("input"));
+
+setTimeout(() => {
+  const inputs = document.querySelectorAll(".image-url");
+
+  data.images?.forEach((img, index) => {
+    if (inputs[index]) inputs[index].value = img;
+  });
+}, 100);
+  // 🔥 Update mode
+  const form = document.getElementById("addProductForm");
+
+  form.onsubmit = async (e) => {
+    e.preventDefault();
+
+    const updatedData = {
+      name: document.getElementById("productName").value,
+      brand: document.getElementById("productBrand").value,
+      category: document.getElementById("productCategory").value,
+      price: document.getElementById("productPrice").value,
+      description: document.getElementById("productDescription").value,
+    };
+
+    await firebase.firestore().collection("products").doc(id).update(updatedData);
+
+    alert("✅ Product updated!");
+    form.reset();
+
+    // Reset form back to add mode
+    location.reload();
+  };
+
+
+
+}
+loadProducts();
+
+      // Logout placeholder
+     document.getElementById("logoutBtn").addEventListener("click", async () => {
+  try {
+    // Firebase logout
+    await firebase.auth().signOut();
+
+    // Clear localStorage
+    localStorage.clear();
+
+    alert("Logged out successfully!");
+
+    // Redirect
+    window.location.href = "login.html";
+  } catch (error) {
+    console.error("Logout error:", error);
+    alert("❌ Logout failed");
+  }
+  loadProducts();
+});
+   
+    </script>
+
+ 
+  </body>
+</html>

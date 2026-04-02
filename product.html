@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GMTDXB | Product Details</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #0f1114;
+        color: #f5f5f5;
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .spec-label {
+        color: #9ca3af;
+      }
+
+      .price-tag {
+        color: #3b82f6;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ✅ NAVBAR -->
+   <header class="sticky top-0 z-40 glass">
+  <div class="flex items-center justify-between px-6 md:px-12 py-4">
+
+    <!-- LEFT: Logo -->
+    <div class="flex items-center gap-2">
+      <img 
+        src="https://res.cloudinary.com/ds1fnqy6s/image/upload/v1774975182/pstttlm8p4x4rd8aearl.png" 
+        alt="GMTDXB" 
+        class="w-12 h-12 object-contain"
+      />
+    </div>
+
+    <!-- CENTER: Menu -->
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+      <a href="index.html" class="text-blue-400">Home</a>
+      <a href="shop.html" class="hover:text-blue-400 transition">Shop</a>
+      <a href="services.html" class="hover:text-blue-400 transition">Services</a>
+      <a href="about.html" class="hover:text-blue-400 transition">About</a>
+      <a href="contact.html" class="hover:text-blue-400 transition">Contact</a>
+    </nav>
+
+    <!-- RIGHT: Icons -->
+    <div class="flex items-center gap-5">
+      
+      <!-- Search -->
+      <button class="text-gray-300 hover:text-blue-400 transition" aria-label="Search">
+        <i class="fa-solid fa-magnifying-glass text-lg"></i>
+      </button>
+
+      <!-- Cart -->
+      <a href="cart.html" class="relative text-gray-300 hover:text-blue-400 transition">
+        <i class="fa-solid fa-cart-shopping text-lg"></i>
+        <span
+          id="cartCount"
+          class="absolute -top-2 -right-3 text-xs bg-blue-500 text-white rounded-full px-1.5"
+        >
+          0
+        </span>
+      </a>
+
+      <!-- User -->
+      <button id="userBtn" class="text-gray-300 hover:text-blue-400 transition">
+        <i class="fa-solid fa-user text-lg"></i>
+      </button>
+
+    </div>
+
+  </div>
+</header>
+
+    <!-- ✅ PRODUCT SECTION -->
+    <main class="w-[95%] md:w-[80%] mx-auto py-10 flex flex-col lg:flex-row gap-10">
+      <!-- 🖼️ IMAGE GALLERY -->
+      <div class="lg:w-1/2 glass p-4 rounded-lg">
+        <div class="mb-4">
+          <img
+            id="mainImage"
+            src="assets/images/ui/sample-laptop.jpg"
+            alt="Product Image"
+            class="w-full h-80 object-cover rounded-md"
+          />
+        </div>
+        <div class="flex gap-3 justify-center">
+          <img
+            src="assets/images/ui/sample-laptop.jpg"
+            class="w-20 h-20 object-cover rounded-md border border-gray-700 cursor-pointer hover:border-blue-500"
+            onclick="setMainImage(this.src)"
+          />
+          <img
+            src="assets/images/ui/sample-laptop-2.jpg"
+            class="w-20 h-20 object-cover rounded-md border border-gray-700 cursor-pointer hover:border-blue-500"
+            onclick="setMainImage(this.src)"
+          />
+          <img
+            src="assets/images/ui/sample-laptop-3.jpg"
+            class="w-20 h-20 object-cover rounded-md border border-gray-700 cursor-pointer hover:border-blue-500"
+            onclick="setMainImage(this.src)"
+          />
+        </div>
+      </div>
+
+      <!-- 🧩 PRODUCT DETAILS -->
+      <div class="lg:w-1/2">
+        <h2 id="productName" class="text-2xl font-bold mb-2">
+          HP Victus 15 Gaming Laptop
+        </h2>
+        <p id="brand" class="text-gray-400 mb-1">Brand: HP</p>
+        <p id="sku" class="text-gray-500 mb-3 text-sm">Model: 15-FA0032AX</p>
+
+        <p class="text-lg font-semibold mb-3">
+          Availability:
+          <span id="availability" class="text-green-400 font-medium">In Stock</span>
+        </p>
+
+        <div class="flex items-center gap-4 mb-5">
+          <p id="price" class="text-3xl font-bold price-tag">AED 3,899</p>
+          <p id="oldPrice" class="text-gray-500 line-through">AED 4,299</p>
+        </div>
+
+        <p class="text-gray-300 mb-6">
+          Powered by AMD Ryzen 5, RTX 3050 graphics, 16GB RAM, and a blazing
+          fast 512GB SSD, the HP Victus delivers performance for both gaming and
+          productivity.
+        </p>
+
+        <div class="flex gap-4 mb-6">
+          <button
+            class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md font-medium"
+          >
+            Add to Cart
+          </button>
+          <button
+            class="glass border border-blue-500 text-blue-400 px-6 py-3 rounded-md font-medium hover:bg-blue-500 hover:text-white transition"
+          >
+            Buy Now
+          </button>
+        </div>
+
+        <!-- ⭐ Rating -->
+        <div class="flex items-center gap-2 mb-4">
+          <i class="fa-solid fa-star text-yellow-400"></i>
+          <i class="fa-solid fa-star text-yellow-400"></i>
+          <i class="fa-solid fa-star text-yellow-400"></i>
+          <i class="fa-solid fa-star text-yellow-400"></i>
+          <i class="fa-regular fa-star text-gray-500"></i>
+          <p class="text-sm text-gray-400 ml-2">(12 Reviews)</p>
+        </div>
+
+        <!-- ⚙️ SPECIFICATIONS -->
+        <div class="glass rounded-lg p-5 mt-6">
+          <h3 class="text-xl font-semibold mb-4 text-blue-400">Specifications</h3>
+          <table class="w-full text-sm">
+            <tbody>
+              <tr class="border-b border-gray-700">
+                <td class="spec-label py-2">Processor</td>
+                <td class="py-2 text-right">AMD Ryzen 5 5600H</td>
+              </tr>
+              <tr class="border-b border-gray-700">
+                <td class="spec-label py-2">RAM</td>
+                <td class="py-2 text-right">16GB DDR5</td>
+              </tr>
+              <tr class="border-b border-gray-700">
+                <td class="spec-label py-2">Storage</td>
+                <td class="py-2 text-right">512GB SSD</td>
+              </tr>
+              <tr class="border-b border-gray-700">
+                <td class="spec-label py-2">Graphics</td>
+                <td class="py-2 text-right">NVIDIA RTX 3050 4GB</td>
+              </tr>
+              <tr>
+                <td class="spec-label py-2">Display</td>
+                <td class="py-2 text-right">15.6" FHD 144Hz</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <!-- ✅ RELATED PRODUCTS -->
+    <section class="py-16 bg-[#111317]">
+      <h3 class="text-2xl font-semibold text-center mb-8 text-blue-400">
+        Related Products
+      </h3>
+      <div
+        id="related-grid"
+        class="grid grid-cols-2 md:grid-cols-4 gap-6 w-[90%] md:w-[80%] mx-auto"
+      >
+        <!-- 🔹 Placeholder cards -->
+        <div class="glass p-4 rounded-lg text-center animate-pulse">
+          <div class="h-40 bg-gray-800 rounded-md mb-4"></div>
+          <div class="h-4 bg-gray-700 w-3/4 mx-auto mb-2"></div>
+          <div class="h-3 bg-gray-700 w-1/2 mx-auto"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ FOOTER -->
+    <footer class="bg-black py-10 text-center text-gray-400 text-sm">
+      <p>© 2025 GMTDXB — All Rights Reserved.</p>
+    </footer>
+
+    <!-- ✅ SCRIPT -->
+    <script>
+      // Image gallery switcher
+      function setMainImage(src) {
+        document.getElementById("mainImage").src = src;
+      }
+
+      // TODO: Replace with dynamic Firestore product loading
+      // e.g., get product ID from URL ?id=XYZ and fetch details from Firestore
+      console.log("Product page loaded, waiting for Firestore data.");
+    </script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

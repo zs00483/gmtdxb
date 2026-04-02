@@ -1,0 +1,122 @@
+[
+  {
+    "id": "p001",
+    "name": "HP Pavilion 15",
+    "brand": "HP",
+    "category": "Laptop",
+    "price": 2899,
+    "stock": 12,
+    "condition": "New",
+    "rating": 4.5,
+    "image": "assets/products/hp-pavilion15.jpg",
+    "description": "HP Pavilion 15 with Intel Core i5 12th Gen, 16GB RAM, 512GB SSD, and Intel Iris Xe Graphics — ideal for work and entertainment."
+  },
+  {
+    "id": "p002",
+    "name": "Dell Inspiron 14",
+    "brand": "Dell",
+    "category": "Laptop",
+    "price": 3199,
+    "stock": 10,
+    "condition": "New",
+    "rating": 4.3,
+    "image": "assets/products/dell-inspiron14.jpg",
+    "description": "Dell Inspiron 14 offers premium productivity with an Intel i7 13th Gen processor, 16GB RAM, 512GB SSD, and lightweight aluminum design."
+  },
+  {
+    "id": "p003",
+    "name": "Apple MacBook Air M2",
+    "brand": "Apple",
+    "category": "Laptop",
+    "price": 4999,
+    "stock": 8,
+    "condition": "New",
+    "rating": 4.9,
+    "image": "assets/products/macbook-air-m2.jpg",
+    "description": "Apple MacBook Air M2 chip, 8GB unified memory, 256GB SSD, 13.6-inch Liquid Retina Display. Elegant performance with silent cooling."
+  },
+  {
+    "id": "p004",
+    "name": "Lenovo IdeaPad Gaming 3",
+    "brand": "Lenovo",
+    "category": "Laptop",
+    "price": 3799,
+    "stock": 6,
+    "condition": "New",
+    "rating": 4.6,
+    "image": "assets/products/lenovo-ideapad-gaming3.jpg",
+    "description": "Lenovo IdeaPad Gaming 3 powered by AMD Ryzen 5, 16GB RAM, 512GB SSD, and NVIDIA RTX 3050 — for serious gaming performance."
+  },
+  {
+    "id": "p005",
+    "name": "ASUS TUF Gaming F15",
+    "brand": "ASUS",
+    "category": "Laptop",
+    "price": 4099,
+    "stock": 5,
+    "condition": "New",
+    "rating": 4.8,
+    "image": "assets/products/asus-tuf-f15.jpg",
+    "description": "ASUS TUF Gaming F15, Intel Core i7, RTX 3050Ti, 144Hz display, and military-grade durability for intense gaming sessions."
+  },
+  {
+    "id": "p006",
+    "name": "Acer Aspire 5",
+    "brand": "Acer",
+    "category": "Laptop",
+    "price": 2499,
+    "stock": 14,
+    "condition": "New",
+    "rating": 4.2,
+    "image": "assets/products/acer-aspire5.jpg",
+    "description": "Acer Aspire 5 features Intel Core i5, 8GB RAM, 512GB SSD, and sleek aluminum design — perfect balance of productivity and style."
+  },
+  {
+    "id": "p007",
+    "name": "Samsung 24-inch Curved Monitor",
+    "brand": "Samsung",
+    "category": "Monitor",
+    "price": 899,
+    "stock": 18,
+    "condition": "New",
+    "rating": 4.4,
+    "image": "assets/products/samsung-24-curved.jpg",
+    "description": "Samsung 24-inch curved FHD monitor with ultra-slim design, immersive visuals, and Eye Saver mode for long working hours."
+  },
+  {
+    "id": "p008",
+    "name": "Logitech MX Master 3S Mouse",
+    "brand": "Logitech",
+    "category": "Accessories",
+    "price": 499,
+    "stock": 25,
+    "condition": "New",
+    "rating": 4.7,
+    "image": "assets/products/logitech-mx3s.jpg",
+    "description": "Logitech MX Master 3S ergonomic wireless mouse with 8000 DPI sensor, quiet clicks, and multi-device connectivity."
+  },
+  {
+    "id": "p009",
+    "name": "Razer BlackWidow V4 Keyboard",
+    "brand": "Razer",
+    "category": "Accessories",
+    "price": 699,
+    "stock": 20,
+    "condition": "New",
+    "rating": 4.8,
+    "image": "assets/products/razer-blackwidow.jpg",
+    "description": "Razer BlackWidow V4 mechanical keyboard with RGB lighting, programmable keys, and durable switches for gaming."
+  },
+  {
+    "id": "p010",
+    "name": "Canon PIXMA G2020 Printer",
+    "brand": "Canon",
+    "category": "Printer",
+    "price": 799,
+    "stock": 15,
+    "condition": "New",
+    "rating": 4.5,
+    "image": "assets/products/canon-pixma-g2020.jpg",
+    "description": "Canon PIXMA G2020 InkTank Printer with refillable ink system, wireless printing, and cost-efficient page yield."
+  }
+]

@@ -1,0 +1,304 @@
+/* ==========================================================
+   product.css — GMTDXB Product Details Styles
+   ==========================================================
+   Handles:
+   ✅ Product image & info layout
+   ✅ Price, specs, and CTA buttons
+   ✅ Reviews and rating section
+   ✅ Related product grid
+   ✅ Mobile responsiveness
+   ========================================================== */
+
+/* ------------------------------------------
+   🔹 Main Product Layout
+------------------------------------------ */
+.product-section {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2rem;
+  padding: 3rem 1.5rem;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.product-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+.product-image img {
+  width: 100%;
+  max-width: 480px;
+  border-radius: var(--radius);
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.product-image img:hover {
+  transform: scale(1.05);
+}
+
+/* ------------------------------------------
+   🔹 Product Info Section
+------------------------------------------ */
+.product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-info h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.product-info .brand {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.product-info .description {
+  color: var(--color-text);
+  line-height: 1.6;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.product-info .price {
+  color: var(--color-primary);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.product-info .category {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ------------------------------------------
+   🔹 Buttons (Add to Cart / Buy Now)
+------------------------------------------ */
+.product-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.product-actions button {
+  flex: 1;
+  padding: 0.9rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.product-actions .btn-cart {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.product-actions .btn-cart:hover {
+  background-color: #2563eb;
+}
+
+.product-actions .btn-buy {
+  background-color: var(--color-success);
+  color: white;
+}
+
+.product-actions .btn-buy:hover {
+  background-color: #16a34a;
+}
+
+/* ------------------------------------------
+   🔹 Specifications Section
+------------------------------------------ */
+.specs-section {
+  margin-top: 3rem;
+}
+
+.specs-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.specs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #2c2f35;
+}
+
+.specs-list li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #2c2f35;
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+/* ------------------------------------------
+   🔹 Review Section
+------------------------------------------ */
+#reviewForm {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-top: 3rem;
+  box-shadow: var(--shadow);
+}
+
+#reviewForm textarea {
+  background: var(--color-surface);
+  border: 1px solid #2c2f35;
+  color: white;
+  border-radius: var(--radius);
+  width: 100%;
+  padding: 0.8rem;
+  resize: none;
+}
+
+#reviewForm button {
+  margin-top: 1rem;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#reviewForm button:hover {
+  background-color: #2563eb;
+}
+
+.star-rating i {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b7280;
+  transition: color 0.3s;
+}
+
+.star-rating i:hover {
+  color: #facc15;
+}
+
+#reviewContainer .glass {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* ------------------------------------------
+   🔹 Related Products
+------------------------------------------ */
+.related-section {
+  margin-top: 4rem;
+}
+
+.related-section h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.5rem;
+}
+
+.related-grid .card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.25s ease;
+}
+
+.related-grid .card:hover {
+  transform: translateY(-4px);
+}
+
+.related-grid img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.related-grid .details {
+  padding: 1rem;
+  text-align: center;
+}
+
+.related-grid .details h4 {
+  font-size: 1rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.related-grid .details p {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+/* ------------------------------------------
+   🔹 Responsive Design
+------------------------------------------ */
+@media (max-width: 992px) {
+  .product-section {
+    grid-template-columns: 1fr;
+  }
+
+  .product-info h1 {
+    font-size: 1.6rem;
+  }
+
+  .product-info .price {
+    font-size: 1.4rem;
+  }
+
+  .product-image img {
+    max-width: 400px;
+  }
+
+  .product-actions button {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .product-section {
+    padding: 2rem 1rem;
+  }
+
+  .related-grid img {
+    height: 130px;
+  }
+
+  .star-rating i {
+    font-size: 1.3rem;
+  }
+
+  #reviewForm textarea {
+    font-size: 0.9rem;
+  }
+}

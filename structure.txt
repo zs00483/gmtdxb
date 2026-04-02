@@ -1,0 +1,67 @@
+gmt-dxb/
+│
+├── 📄 index.html
+├── 📄 shop.html
+├── 📄 product.html
+├── 📄 cart.html
+├── 📄 checkout.html
+├── 📄 login.html
+├── 📄 register.html
+├── 📄 contact.html
+├── 📄 about.html
+├── 📄 services.html
+├── 📄 admin.html
+│
+├── 📁 js/
+│   ├── firebase.js          ← Firebase init, Firestore & Auth config
+│   ├── main.js              ← Cart, user drawer, navbar, order creation
+│   ├── auth.js              ← Login/Signup logic (Google, Email, Passwordless)
+│   ├── admin.js             ← Admin dashboard CRUD + Cloudinary integration
+│   ├── product.js           ← Product detail page (gallery, reviews, add-to-cart)
+│   ├── shop.js              ← Dynamic filters, pagination, Firestore queries
+│   ├── services.js          ← Optional: dynamic service listings from Firestore
+│   ├── utils.js             ← Shared functions (price format, AED symbol, etc.)
+│   ├── review.js            ← Review & rating system logic (optional)
+│   └── compare.js           ← Product comparison feature (optional)
+│
+├── 📁 css/
+│   ├── base.css             ← Resets, variables, root colors, typography
+│   ├── styles.css           ← Global styles (layout, navbar, footer)
+│   ├── shop.css             ← Product grid, filter sidebar, responsive shop
+│   ├── product.css          ← Product detail layout, specs table, reviews
+│   ├── admin.css            ← Admin dashboard, forms, analytics
+│   ├── services.css         ← Repair/service section layout
+│   └── responsive.css       ← All mobile/tablet media queries
+│
+├── 📁 assets/
+│   ├── 📁 images/
+│   │   ├── logos/
+│   │   │   ├── gmt-logo.svg
+│   │   │   ├── brands/ (HP, Dell, Asus, etc.)
+│   │   └── ui/ (icons, banners, placeholders)
+│   ├── 📁 icons/
+│   │   ├── heroicons/ or fontawesome
+│   └── 📁 uploads/           ← (Cloudinary fallback / local temp)
+│
+├── 📁 components/
+│   ├── navbar.html          ← Reusable nav (imported via JS or included manually)
+│   ├── footer.html          ← Footer section
+│   ├── product-card.html    ← Product card component template
+│   ├── filter-sidebar.html  ← Shop filters template
+│   └── review.html          ← Review component (optional)
+│
+├── 📁 data/
+│   └── sample-products.json ← Example data (for testing Firestore import)
+│
+├── 📁 firebase/
+│   ├── firestore.rules      ← Firestore security rules
+│   ├── storage.rules        ← Firebase Storage rules
+│   ├── firebase.json        ← Firebase config (for deploy if needed)
+│   └── .firebaserc
+│
+├── 📁 admin/
+│   ├── dashboard.html       ← Optional separated admin view
+│   ├── orders.html
+│   └── products.html
+│
+└── 📁 dist/ or /build/      ← Minified production output (optional, for deploy)

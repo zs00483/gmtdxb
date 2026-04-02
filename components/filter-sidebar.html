@@ -1,0 +1,52 @@
+<!-- ==========================================================
+   filter-sidebar.html — Product Filter Sidebar
+   ========================================================== -->
+
+<aside class="filter-sidebar glass p-5 rounded-xl shadow">
+  <h3 class="text-blue-400 font-semibold text-lg mb-3">Filters</h3>
+
+  <!-- Category Filter -->
+  <div class="mb-5">
+    <h4 class="text-gray-300 text-sm mb-2 uppercase">Category</h4>
+    <ul class="space-y-2 text-gray-400 text-sm">
+      <li><label><input type="checkbox" class="mr-2" onchange="filterCategory('Laptop')">Laptop</label></li>
+      <li><label><input type="checkbox" class="mr-2" onchange="filterCategory('Accessories')">Accessories</label></li>
+      <li><label><input type="checkbox" class="mr-2" onchange="filterCategory('Desktop')">Desktop</label></li>
+      <li><label><input type="checkbox" class="mr-2" onchange="filterCategory('Printer')">Printer</label></li>
+    </ul>
+  </div>
+
+  <!-- Price Filter -->
+  <div class="mb-5">
+    <h4 class="text-gray-300 text-sm mb-2 uppercase">Price Range</h4>
+    <input type="range" min="500" max="10000" step="100" id="priceRange" oninput="updatePriceFilter(this.value)">
+    <div class="text-gray-400 text-sm mt-1">Below AED <span id="priceValue">5000</span></div>
+  </div>
+
+  <!-- Sort Options -->
+  <div>
+    <h4 class="text-gray-300 text-sm mb-2 uppercase">Sort By</h4>
+    <select id="sortSelect" class="w-full bg-[#1b1e23] border border-gray-700 text-gray-300 p-2 rounded-md"
+      onchange="applySort(this.value)">
+      <option value="default">Default</option>
+      <option value="priceLowHigh">Price: Low to High</option>
+      <option value="priceHighLow">Price: High to Low</option>
+      <option value="latest">Latest</option>
+    </select>
+  </div>
+</aside>
+
+<script>
+  // Example filter handlers
+  function filterCategory(cat) {
+    console.log("Filter Category:", cat);
+  }
+
+  function updatePriceFilter(val) {
+    document.getElementById("priceValue").textContent = val;
+  }
+
+  function applySort(val) {
+    console.log("Sort by:", val);
+  }
+</script>

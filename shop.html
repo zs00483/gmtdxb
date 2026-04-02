@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GMTDXB | Shop Laptops & Electronics</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #0f1114;
+        color: #f5f5f5;
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .active-filter {
+        background-color: #007bff;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body class="overflow-x-hidden">
+    <!-- ✅ NAVBAR -->
+   <header class="sticky top-0 z-40 glass">
+  <div class="flex items-center justify-between px-6 md:px-12 py-4">
+
+    <!-- LEFT: Logo -->
+    <div class="flex items-center gap-2">
+      <img 
+        src="https://res.cloudinary.com/ds1fnqy6s/image/upload/v1774975182/pstttlm8p4x4rd8aearl.png" 
+        alt="GMTDXB" 
+        class="w-12 h-12 object-contain"
+      />
+    </div>
+
+    <!-- CENTER: Menu -->
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+      <a href="index.html" class="text-blue-400">Home</a>
+      <a href="shop.html" class="hover:text-blue-400 transition">Shop</a>
+      <a href="services.html" class="hover:text-blue-400 transition">Services</a>
+      <a href="about.html" class="hover:text-blue-400 transition">About</a>
+      <a href="contact.html" class="hover:text-blue-400 transition">Contact</a>
+    </nav>
+
+    <!-- RIGHT: Icons -->
+    <div class="flex items-center gap-5">
+      
+      <!-- Search -->
+      <button class="text-gray-300 hover:text-blue-400 transition" aria-label="Search">
+        <i class="fa-solid fa-magnifying-glass text-lg"></i>
+      </button>
+
+      <!-- Cart -->
+      <a href="cart.html" class="relative text-gray-300 hover:text-blue-400 transition">
+        <i class="fa-solid fa-cart-shopping text-lg"></i>
+        <span
+          id="cartCount"
+          class="absolute -top-2 -right-3 text-xs bg-blue-500 text-white rounded-full px-1.5"
+        >
+          0
+        </span>
+      </a>
+
+      <!-- User -->
+      <button id="userBtn" class="text-gray-300 hover:text-blue-400 transition">
+        <i class="fa-solid fa-user text-lg"></i>
+      </button>
+
+    </div>
+
+  </div>
+</header>
+
+    <!-- ✅ SHOP HEADER -->
+    <section class="py-10 bg-[#111317] text-center">
+      <h2 class="text-3xl font-bold mb-2 text-blue-400">Shop Electronics</h2>
+      <p class="text-gray-400">
+        Browse laptops, desktops, and components at the best prices in UAE.
+      </p>
+    </section>
+
+    <!-- ✅ MAIN CONTENT -->
+    <main class="flex flex-col md:flex-row w-[95%] md:w-[85%] mx-auto gap-6 py-10">
+      <!-- 🧩 FILTER SIDEBAR -->
+      <aside
+        class="glass p-5 rounded-lg md:w-1/4 hidden md:block h-fit sticky top-24"
+      >
+        <h3 class="text-xl font-semibold mb-4 text-blue-400">Filters</h3>
+
+        <!-- Category -->
+        <div class="mb-6">
+          <h4 class="font-medium mb-2">Category</h4>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li><button class="filter-btn" data-filter="laptops">Laptops</button></li>
+            <li><button class="filter-btn" data-filter="desktops">Desktops</button></li>
+            <li><button class="filter-btn" data-filter="components">Components</button></li>
+            <li><button class="filter-btn" data-filter="used">Used / Pre-Loved</button></li>
+          </ul>
+        </div>
+
+        <!-- Brand -->
+        <div class="mb-6">
+          <h4 class="font-medium mb-2">Brand</h4>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li><button class="filter-btn" data-brand="HP">HP</button></li>
+            <li><button class="filter-btn" data-brand="Dell">Dell</button></li>
+            <li><button class="filter-btn" data-brand="ASUS">ASUS</button></li>
+            <li><button class="filter-btn" data-brand="Lenovo">Lenovo</button></li>
+            <li><button class="filter-btn" data-brand="Apple">Apple</button></li>
+          </ul>
+        </div>
+
+        <!-- Price -->
+        <div>
+          <h4 class="font-medium mb-2">Price Range (AED)</h4>
+          <input
+            type="range"
+            min="500"
+            max="10000"
+            step="100"
+            value="5000"
+            id="priceRange"
+            class="w-full"
+          />
+          <p class="text-sm mt-1 text-gray-400">
+            Up to: <span id="priceValue" class="font-semibold text-blue-400">5000</span>
+          </p>
+        </div>
+      </aside>
+
+      <!-- 🧩 PRODUCTS SECTION -->
+      <section class="flex-1">
+        <!-- SORT BAR -->
+        <div
+          class="glass flex flex-wrap justify-between items-center px-4 py-3 mb-6 rounded-lg"
+        >
+          <p class="text-sm text-gray-400">
+            Showing <span id="totalProducts">0</span> products
+          </p>
+
+          <select
+            id="sortSelect"
+            class="bg-[#1b1e23] border border-gray-700 rounded-md text-sm px-3 py-2"
+          >
+            <option value="default">Sort by: Default</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+            <option value="newest">Newest First</option>
+          </select>
+        </div>
+
+        <!-- PRODUCT GRID -->
+        <div
+          id="product-grid"
+          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6"
+        >
+          <!-- 🔹 Placeholder cards (until Firestore loads) -->
+          <div class="glass p-4 rounded-lg text-center animate-pulse">
+            <div class="h-40 bg-gray-800 rounded-md mb-4"></div>
+            <div class="h-4 bg-gray-700 w-3/4 mx-auto mb-2"></div>
+            <div class="h-3 bg-gray-700 w-1/2 mx-auto"></div>
+          </div>
+          <div class="glass p-4 rounded-lg text-center animate-pulse">
+            <div class="h-40 bg-gray-800 rounded-md mb-4"></div>
+            <div class="h-4 bg-gray-700 w-3/4 mx-auto mb-2"></div>
+            <div class="h-3 bg-gray-700 w-1/2 mx-auto"></div>
+          </div>
+        </div>
+
+        <!-- LOAD MORE -->
+        <div class="text-center mt-10">
+          <button
+            id="loadMoreBtn"
+            class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md"
+          >
+            Load More
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- ✅ MOBILE FILTER BUTTON -->
+    <button
+      id="mobileFilterBtn"
+      class="fixed bottom-5 right-5 bg-blue-500 text-white p-4 rounded-full md:hidden"
+    >
+      <i class="fa-solid fa-filter"></i>
+    </button>
+
+    <!-- ✅ FOOTER -->
+    <footer class="bg-black py-10 text-center text-gray-400 text-sm">
+      <p>© 2025 GMTDXB — All Rights Reserved.</p>
+    </footer>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+
+<script src="js/firebase.js"></script>
+
+<script src="js/shop.js"></script>
+    <!-- ✅ SCRIPT -->
+    <script>
+      // Range display update
+      const range = document.getElementById("priceRange");
+      const value = document.getElementById("priceValue");
+      range.addEventListener("input", () => {
+        value.textContent = range.value;
+      });
+
+      // Placeholder dynamic Firestore loading
+      console.log("Shop page ready. Firebase dynamic load will go here.");
+
+      // Example: future Firestore integration
+      // db.collection("products")
+      //   .orderBy("displayOrder")
+      //   .limit(8)
+      //   .get()
+      //   .then(snapshot => { ... })
+    </script>
+    <script>
+  const currentPage = window.location.pathname.split("/").pop();
+
+  const links = document.querySelectorAll("nav a");
+
+  links.forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("text-blue-400");
+    } else {
+      link.classList.remove("text-blue-400");
+    }
+  });
+  
+</script>
+<script>
+
+
+</script>
+<script>
+
+</script>
+
+
+  </body>
+</html>

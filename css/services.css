@@ -1,0 +1,248 @@
+/* ==========================================================
+   services.css — GMTDXB Services Page Styles
+   ==========================================================
+   Handles:
+   ✅ Hero section for services
+   ✅ Service feature cards
+   ✅ Booking form styling
+   ✅ Animations and responsiveness
+   ========================================================== */
+
+/* ------------------------------------------
+   🔹 Services Hero Section
+------------------------------------------ */
+/* 🔹 Services Hero Section */
+.services-hero {
+  position: relative;
+
+  /* Background image + gradient */
+  background: 
+    linear-gradient(rgba(15,17,20,0.85), rgba(15,17,20,0.85)),
+    url('https://images.unsplash.com/photo-1518770660439-4636190af475') center/cover no-repeat;
+
+  padding: 6rem 1rem;
+  text-align: center;
+  color: var(--color-text);
+
+  /* Center content properly */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 60vh;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Heading */
+.services-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* Paragraph */
+.services-hero p {
+  margin-top: 0.8rem;
+  color: var(--color-muted);
+  font-size: 1.1rem;
+  max-width: 600px;
+}
+
+/* ------------------------------------------
+   🔹 Services Grid
+------------------------------------------ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 3rem 2rem;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: var(--color-text);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.service-card i {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.service-card p {
+  color: var(--color-muted);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* ------------------------------------------
+   🔹 Booking Form Section
+------------------------------------------ */
+.booking-section {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 3rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.booking-section h2 {
+  text-align: center;
+  color: var(--color-primary);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+#serviceForm {
+  max-width: 700px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+#serviceForm input,
+#serviceForm select,
+#serviceForm textarea {
+  width: 100%;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid #2c2f35;
+  border-radius: var(--radius);
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s;
+}
+
+#serviceForm input:focus,
+#serviceForm select:focus,
+#serviceForm textarea:focus {
+  border-color: var(--color-primary);
+}
+
+#serviceForm textarea {
+  resize: none;
+}
+
+#serviceForm button {
+  width: 100%;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 0.9rem;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#serviceForm button:hover {
+  background-color: #2563eb;
+}
+
+/* ------------------------------------------
+   🔹 Animation & Scroll Effects
+------------------------------------------ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.service-card {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+/* ------------------------------------------
+   🔹 Responsive Layout
+------------------------------------------ */
+@media (max-width: 992px) {
+  .services-grid {
+    padding: 2rem 1.5rem;
+  }
+
+  .service-card {
+    padding: 1.5rem 1rem;
+  }
+
+  #serviceForm {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-hero h1 {
+    font-size: 2rem;
+  }
+
+  .services-hero p {
+    font-size: 0.95rem;
+  }
+
+  #serviceForm button {
+    font-size: 0.95rem;
+  }
+}
+/* ===== SERVICES HEADING PREMIUM ===== */
+.text-blue-400 {
+  position: relative;
+  display: inline-block;
+
+ 
+
+  /* Animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: headingFade 1.2s ease forwards;
+}
+
+/* Animation */
+@keyframes headingFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.services-section .text-blue-400 {
+  animation: headingFade 1.2s ease forwards, glowPulse 2s infinite alternate;
+}
+
+@keyframes glowPulse {
+  from {
+    text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+  }
+  to {
+    text-shadow: 0 0 25px rgba(96, 165, 250, 0.9);
+  }
+}
+
+
+select option {
+  background-color: #27292d !important;
+  color: white !important;
+}
